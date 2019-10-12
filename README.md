@@ -89,4 +89,8 @@ My Goal for this project was to create a primitive version of the arcade game sp
 My design process behind this wasn't exactly origional the game this is based on has been around for decades however i enjoyed the challenge of converting it into something the microbit could understand
 
 #### JS Constructs & objects
-
+on button a pressed player moves to the left 
+on button b pressed player moves to the right 
+on buttons a and b pressed player fires missiles 
+on start score is set to 0 
+on killing an invader score is upped by one 
