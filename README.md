@@ -83,10 +83,10 @@ This assignment asks you to go complete the Final Project for the [Intro to CS c
 ### Description
 
 #### Goal
-TODO
+My Goal for this project was to create a primitive version of the arcade game space invaders 
 
 #### Design process
-TODO
+
 
 #### JS Constructs & objects
 TODO
