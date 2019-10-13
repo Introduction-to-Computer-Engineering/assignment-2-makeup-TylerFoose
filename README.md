@@ -89,8 +89,29 @@ My Goal for this project was to create a primitive version of the arcade game sp
 My design process behind this wasn't exactly origional the game this is based on has been around for decades however i enjoyed the challenge of converting it into something the microbit could understand
 
 #### JS Constructs & objects
-on button a pressed player moves to the left 
-on button b pressed player moves to the right 
-on buttons a and b pressed player fires missiles 
-on start score is set to 0 
-on killing an invader score is upped by one 
+
+
+input.onButtonPressed(Button.A, function () {
+    Base.change(LedSpriteProperty.X, -1)
+    // makes player move to the left on a button pushed 
+})
+input.onButtonPressed(Button.B, function () {
+    Base.change(LedSpriteProperty.X, 1)
+    // makes player move right on b button pushed 
+})
+input.onButtonPressed(Button.AB, function () {
+    Missile = game.createSprite(Base.get(LedSpriteProperty.X), Base.get(LedSpriteProperty.Y))
+    Missile.change(LedSpriteProperty.Brightness, 86)
+    for (let index = 0; index < 4; index++) {
+        Missile.change(LedSpriteProperty.Y, -1)
+        basic.pause(150)
+        if (Missile.isTouching(INVADERS)) {
+            game.addScore(1)
+            Missile.delete()
+            INVADERS.delete()
+            // makes missiles fire and deletes invaders uppon hit
+        }
+    }
+    if (Missile.get(LedSpriteProperty.Y) <= 0) {
+        Missile.delete()
+        // makes missiles delete when they reach the end of the board 
