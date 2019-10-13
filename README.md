@@ -115,3 +115,15 @@ input.onButtonPressed(Button.AB, function () {
     if (Missile.get(LedSpriteProperty.Y) <= 0) {
         Missile.delete()
         // makes missiles delete when they reach the end of the board 
+        
+        basic.forever(function () {
+    INVADERS = game.createSprite(Math.randomRange(0, 4), 0)
+    INVADERS.set(LedSpriteProperty.Brightness, 150)
+    basic.pause(100)
+    INVADERS.turn(Direction.Right, 90)
+    for (let index = 0; index < 4; index++) {
+        INVADERS.move(1)
+        basic.pause(500)
+        if (INVADERS.isTouching(Base)) {
+            game.gameOver()
+            // forever function makes enemys spawn at random indefinatly 
